@@ -3,8 +3,8 @@ pipeline {
    stages {
     stage('Git checkout') {
       steps {
-         echo 'This is for cloning the gitrepo'
-         git branch: 'master', url: 'https://github.com/kavyaganji28/star-agile-insurance-project/'
+         git 'https://github.com/kavyaganji28/star-agile-health-care'
+                 echo 'This is for cloning the gitrepo'
                           }
             }
     stage('Create a Package') {
