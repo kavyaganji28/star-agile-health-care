@@ -36,9 +36,9 @@ pipeline {
         sh 'docker push kavyaganji95/healthcare:latest'
                                 }
             }
-    stage('Ansible Playbook') {
-      steps {
-        ansiblePlaybook credentialsId: 'sshkey', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy.yml', vaultTmpPath: ''
+    stage('Deploy to Kubernetes') {
+            steps {
+                sh 'kubectl apply -f k8s/deploy.yml'
             }
         }
 
