@@ -3,8 +3,8 @@ pipeline {
    stages {
     stage('Git checkout') {
       steps {
-         git 'https://github.com/kavyaganji28/star-agile-health-care'
-                 echo 'This is for cloning the gitrepo'
+         echo 'This is for cloning the gitrepo'
+         git branch: 'main', url: 'https://github.com/kavyaganji28/InsureMe-20Mar'
                           }
             }
     stage('Create a Package') {
@@ -26,10 +26,12 @@ pipeline {
             }
     stage('Login to Dockerhub') {
       steps {
-          withCredentials([usernamePassword(credentialsId: 'dockeruser', passwordVariable: 'dockerpass', usernameVariable: 'dockervar')]) {
-              sh 'docker login -u kavyaganji95 -p ${dockerpass}'
-                         }
-                  }
+      withCredentials([string(credentialsId: 'dockeruser', variable: 'dockervarcode')]) {
+        // withCredentials([usernamePassword(credentialsId: 'dockeruser', passwordVariable: 'dockerpass', usernameVariable: 'username')]) {
+
+        sh 'docker login -u kavyaganji95 -p ${dockervarcode}'
+                                                                    }
+                                }
             }
     stage('Push the Docker image') {
       steps {
