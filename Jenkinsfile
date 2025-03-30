@@ -16,12 +16,12 @@ pipeline {
 
     stage('Publish the HTML Reports') {
       steps {
-          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insurance-job/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Healthcare-job/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
                         }
             }
     stage('Create a Docker image') {
       steps {
-        sh 'docker build -t kavyaganji95/insureme:latest .'
+        sh 'docker build -t kavyaganji95/healthcare:latest .'
                     }
             }
     stage('Login to Dockerhub') {
@@ -35,7 +35,7 @@ pipeline {
             }
     stage('Push the Docker image') {
       steps {
-        sh 'docker push kavyaganji95/insureme:latest'
+        sh 'docker push kavyaganji95/healthcare:latest'
                                 }
             }
     stage('Ansible Playbook') {
