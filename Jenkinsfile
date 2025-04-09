@@ -21,7 +21,7 @@ pipeline {
             }
     stage('Create a Docker image') {
       steps {
-        sh 'docker build -t kavyaganji95/healthcare:latest .'
+        sh 'docker build -t kavyaganji95/healthcare1:latest .'
                     }
             }
     stage('Login to Dockerhub') {
