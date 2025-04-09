@@ -16,4 +16,4 @@
     become: yes
     become_user: root
   - name: Deploy the Image from DockerHub and Run as Container
-    command: docker run -itd -p 8989:8081 kavyaganji95/healthcare1:latest
+    command: docker run -itd -p 8084:8082 kavyaganji95/healthcare1:latest
