@@ -21,7 +21,7 @@ pipeline {
             }
     stage('Create a Docker image') {
       steps {
-        sh 'docker build -t kavyaganji95/healthcarenew:latest .'
+        sh 'docker build -t kavyaganji95/healthcarenewnew:latest .'
                     }
             }
     stage('Login to Dockerhub') {
@@ -33,7 +33,7 @@ pipeline {
             }
     stage('Push the Docker image') {
       steps {
-        sh 'docker push kavyaganji95/healthcare1:latest'
+        sh 'docker push kavyaganji95/healthcarenew:latest'
                                 }
             }
     stage('Ansible Playbook') {
